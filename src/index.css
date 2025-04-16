@@ -1,0 +1,25 @@
+@import 'tailwindcss';
+
+@font-face {
+  font-family: TestAssignmentRegular;
+  src: url('./assets/fonts/open-sans/OpenSansRegular.ttf');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: TestAssignmentSemiBold;
+  src: url('./assets/fonts/open-sans/OpenSansSemiBold.ttf');
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: TestAssignmentBold;
+  src: url('./assets/fonts/open-sans/OpenSansBold.ttf');
+  font-weight: 700;
+}
+
+@theme {
+  --font-test-regular: TestAssignmentRegular, 'sans-serif';
+  --font-test-SemiBold: TestAssignmentSemiBold, 'sans-serif';
+  --font-test-Bold: TestAssignmentBold, 'sans-serif';
+}
