@@ -10,10 +10,23 @@ export default function useFormat() {
   };
 
   const formatPrice = (amount: number, locale: string = 'en-US') => {
-    return new Intl.NumberFormat(locale, {
-      style: 'currency',
-      currency: 'EUR',
-    }).format(amount);
+    const integerDigitsCount = Math.floor(Math.abs(amount)).toString().length;
+
+    if (integerDigitsCount >= 5) {
+      return new Intl.NumberFormat(locale, {
+        style: 'currency',
+        currency: 'EUR',
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+        useGrouping: true,
+      }).format(amount);
+    } else {
+      if (amount % 1 === 0) {
+        return `€${amount.toFixed(2)}`;
+      } else {
+        return `€${amount.toFixed(2).replace('.', ',')}`;
+      }
+    }
   };
 
   return { formatDateTime, formatDate, formatPrice };
